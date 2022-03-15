@@ -45,6 +45,8 @@ public class FramePrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gestão de Imóveis");
 
+        desktopPane.setAutoscrolls(true);
+
         fileMenu.setMnemonic('f');
         fileMenu.setText("Cadastro");
 
