@@ -4,7 +4,6 @@
  */
 package br.ifrn.edu.projetogestaoimovel.controle;
 import br.ifrn.edu.projetogestaoimovel.modelo.Cliente;
-import br.ifrn.edu.projetogestaoimovel.modelo.FaixaRenda;
 import java.util.List;
 import java.util.ArrayList;
 /**
