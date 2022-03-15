@@ -79,6 +79,11 @@ public class FrameCliente extends javax.swing.JInternalFrame {
         });
 
         btnExcluir.setText("Excluir");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
 
         btnSair.setText("Sair");
         btnSair.addActionListener(new java.awt.event.ActionListener() {
@@ -201,6 +206,21 @@ public class FrameCliente extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Cliente não Encontrado", "Projeto Imóveis", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnLocalizarActionPerformed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        if (JOptionPane.showConfirmDialog(this, "Deseja Realmente Excluir?","Projeto Imóveos",JOptionPane.OK_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.OK_OPTION){
+            if (controleCliente.excluirCliente(idCliente)){
+                idCliente=-1;
+                txtNome.setText("");
+                txtEndereco.setText("");
+                txtTelefone.setText("");
+                cboFaixaRenda.setSelectedIndex(0);
+                JOptionPane.showMessageDialog(this, "Registro Excluido", "Projeto Imóveis", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(this, "Cliente não localizado", "Projeto Imóveis", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_btnExcluirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

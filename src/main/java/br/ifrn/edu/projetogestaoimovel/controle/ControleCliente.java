@@ -29,7 +29,12 @@ public class ControleCliente {
         return this.clientes;
     }
     public Cliente getCliente(int idCliente){
-        return clientes.get(idCliente);
+        try{
+             return clientes.get(idCliente);
+        }catch(IndexOutOfBoundsException error){
+            return null;
+        }
+       
     }
     public boolean excluirCliente(int idCliente){
         if (clientes.get(idCliente)==null){
