@@ -49,11 +49,15 @@ public class FramePrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gestão de Imóveis");
 
+
         menuBar.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentResized(java.awt.event.ComponentEvent evt) {
                 FramePrincipal.this.componentResized(evt);
             }
         });
+
+        desktopPane.setAutoscrolls(true);
+
 
         fileMenu.setMnemonic('f');
         fileMenu.setText("Cadastro");

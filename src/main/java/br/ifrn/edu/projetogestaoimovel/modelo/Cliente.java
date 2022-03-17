@@ -6,7 +6,7 @@ package br.ifrn.edu.projetogestaoimovel.modelo;
 
 /**
  *
- * @author 1577655
+ * @author 1577655 - Testando alteração
  */
 public class Cliente {
     private String nome;

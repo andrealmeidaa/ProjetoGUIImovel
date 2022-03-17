@@ -56,6 +56,9 @@ public class FrameCliente extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Nome:");
 
+        txtNome.setBackground(new java.awt.Color(255, 0, 51));
+        txtNome.setForeground(new java.awt.Color(51, 51, 255));
+
         jLabel2.setText("Telefone:");
 
         jLabel3.setText("Endereço:");
@@ -92,6 +95,8 @@ public class FrameCliente extends javax.swing.JInternalFrame {
             }
         });
 
+        btnNovo.setBackground(new java.awt.Color(0, 255, 51));
+        btnNovo.setForeground(new java.awt.Color(0, 0, 255));
         btnNovo.setText("Novo");
         btnNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,11 +189,13 @@ public class FrameCliente extends javax.swing.JInternalFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         //Colocar validação
         
-        Cliente cliente=new Cliente(txtNome.getText(), txtTelefone.getText(), txtEndereco.getText(), (FaixaRenda)cboFaixaRenda.getSelectedItem());
+        Cliente cliente=new Cliente(txtNome.getText(), txtTelefone.getText(), 
+                txtEndereco.getText(), (FaixaRenda)cboFaixaRenda.getSelectedItem());
         controleCliente.adicionarCliente(cliente, idCliente);
         if (idCliente==-1)
             idCliente=controleCliente.getClientes().size()-1;
-        JOptionPane.showMessageDialog(this, "Cliente Salvo com Sucesso", "Projeto Imóveis", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Cliente Salvo com Sucesso", 
+                "Projeto Imóveis", JOptionPane.INFORMATION_MESSAGE);
         
     }//GEN-LAST:event_btnSalvarActionPerformed
 
@@ -208,7 +215,7 @@ public class FrameCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnLocalizarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        if (JOptionPane.showConfirmDialog(this, "Deseja Realmente Excluir?","Projeto Imóveos",JOptionPane.OK_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.OK_OPTION){
+        if (JOptionPane.showConfirmDialog(this, "Deseja Realmente Excluir?","Projeto Imóveis",JOptionPane.OK_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.OK_OPTION){
             if (controleCliente.excluirCliente(idCliente)){
                 idCliente=-1;
                 txtNome.setText("");
