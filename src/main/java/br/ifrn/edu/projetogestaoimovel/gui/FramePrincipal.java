@@ -5,6 +5,7 @@
 package br.ifrn.edu.projetogestaoimovel.gui;
 
 import br.ifrn.edu.projetogestaoimovel.controle.ControleCliente;
+import br.ifrn.edu.projetogestaoimovel.controle.ControleImovel;
 
 /**
  *
@@ -16,10 +17,13 @@ public class FramePrincipal extends javax.swing.JFrame {
      * Creates new form FramePrincipal
      */
     private FrameCliente formCliente;
+    private FrameImovel formImovel;
     private ControleCliente controleCliente;
+    private ControleImovel controleImovel;
     public FramePrincipal() {
         initComponents();
         controleCliente=new ControleCliente();
+        controleImovel=new ControleImovel();
     }
 
     /**
@@ -45,6 +49,12 @@ public class FramePrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gestão de Imóveis");
 
+        menuBar.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentResized(java.awt.event.ComponentEvent evt) {
+                FramePrincipal.this.componentResized(evt);
+            }
+        });
+
         fileMenu.setMnemonic('f');
         fileMenu.setText("Cadastro");
 
@@ -59,6 +69,11 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         imovelMenuItem.setMnemonic('s');
         imovelMenuItem.setText("Imovel");
+        imovelMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                imovelMenuItemActionPerformed(evt);
+            }
+        });
         fileMenu.add(imovelMenuItem);
 
         sairMenuItem.setMnemonic('x');
@@ -97,13 +112,13 @@ public class FramePrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(desktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, 745, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 745, Short.MAX_VALUE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(desktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -123,6 +138,21 @@ public class FramePrincipal extends javax.swing.JFrame {
         }
         formCliente.show();
     }//GEN-LAST:event_clienteMenuItemActionPerformed
+
+    private void imovelMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imovelMenuItemActionPerformed
+        // TODO add your handling code here:
+        if (formImovel==null){
+            formImovel=new FrameImovel(this.controleImovel);
+            desktopPane.add(formImovel);
+        }
+        formImovel.show();
+    }//GEN-LAST:event_imovelMenuItemActionPerformed
+
+    private void componentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_componentResized
+        // TODO add your handling code here:
+        
+       desktopPane.setSize(this.getSize());
+    }//GEN-LAST:event_componentResized
 
     /**
      * @param args the command line arguments
