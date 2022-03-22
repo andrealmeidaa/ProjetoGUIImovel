@@ -220,14 +220,12 @@ public class FrameImovel extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
        
         switch(cboTipoImovel.getSelectedIndex()){
-            case (0)->{
+            case 0:
                 lblCampo.setText("Preço Adicional:");
-               
-            }
-            case (1)->{
+                break;
+            case 1:
                 lblCampo.setText("Desconto:");
-               
-            }
+               break;
         }
     }//GEN-LAST:event_cboTipoImovelActionPerformed
 
@@ -244,12 +242,11 @@ public class FrameImovel extends javax.swing.JInternalFrame {
         Imovel imovel=null;
         
         switch(cboTipoImovel.getSelectedIndex()){
-            case (0)->{
+            case 0:
                 imovel=new ImovelNovo(txtEndereco.getText(), Double.parseDouble(txtPreco.getText()), Double.parseDouble(txtCampoEspecial.getText()));
-            }
-            case (1)->{
+                break;
+            case 1:
                 imovel=new ImovelVelho(txtEndereco.getText(), Double.parseDouble(txtPreco.getText()), Double.parseDouble(txtCampoEspecial.getText()));
-            }
         }
         
         this.controleImovel.adicionarImovel(imovel, idImovel);

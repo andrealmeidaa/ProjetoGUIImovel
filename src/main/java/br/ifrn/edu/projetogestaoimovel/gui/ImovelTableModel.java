@@ -53,21 +53,16 @@ public class ImovelTableModel extends AbstractTableModel {
     @Override
     public Class<?> getColumnClass(int columnIndex) {
       switch(columnIndex){
-          case (COLUNA_ID)->{
+          case (COLUNA_ID):
               return Integer.class;
-          }
-          case (COLUNA_ENDERECO)->{
+          case (COLUNA_ENDERECO):
               return String.class;
-          }
-          case (COLUNA_PRECO)->{
+          case (COLUNA_PRECO):
               return Double.class;
-          }
-          case(COLUNA_PRECO_REAL)->{
+          case(COLUNA_PRECO_REAL):
               return Double.class;
-          }
-          default->{
-                  return String.class;
-          }
+          default:
+              return String.class;
       }
     }
     
@@ -76,20 +71,15 @@ public class ImovelTableModel extends AbstractTableModel {
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
        Imovel imovel=this.imoveis.get(rowIndex);
-       
        switch(columnIndex){
-           case (COLUNA_ID) -> {
+           case (COLUNA_ID) :
                return rowIndex+1;
-            }
-           case (COLUNA_ENDERECO) -> {
+           case (COLUNA_ENDERECO) :
                return imovel.getEndereco();
-            }
-           case (COLUNA_PRECO) -> {
+           case (COLUNA_PRECO) :
                return imovel.getPreco();
-            }
-           case (COLUNA_PRECO_REAL) -> {
+           case (COLUNA_PRECO_REAL) :
                return imovel.calcularValorImovel();
-            }
        }
        return null;
        
